@@ -1,0 +1,99 @@
+esphome:
+  name: esphome-sonoff
+  on_boot:
+    priority: 600
+    then:
+      - switch.turn_on: relay
+
+esp8266:
+  board: esp8285
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret api_password
+  reboot_timeout: 0s
+
+ota:
+  password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_pass
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: !secret ap_ssid
+    password: !secret ap_pass
+
+captive_portal:
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Sonoff Basic Button"
+    on_click:
+      - min_length: 50ms
+        max_length: 250ms
+        then:
+          - switch.toggle: avoid
+      - min_length: 250ms
+        max_length: 500ms
+        then:
+          - switch.toggle: relay
+
+switch:
+  - platform: gpio
+    name: "Sonoff Basic Relay"
+    pin: GPIO12
+    id: relay
+  - platform: template
+    name: "Avoid next poweroff"
+    id: avoid
+    optimistic: 'true'
+    turn_on_action:
+      - light.turn_on: green
+    turn_off_action:
+      - light.turn_off: green
+
+
+light:
+  - platform: status_led
+    name: "LED"
+    id: green
+    internal: true
+    pin:
+      number: GPIO13
+      inverted: true
+
+web_server:
+  port: 80
+  auth:
+    username: !secret web_user
+    password: !secret web_pass
+
+prometheus:
+
+time:
+  - platform: sntp
+    on_time:
+      - cron: '30 30 23 * * 1-5' # When to turn off the relay
+        then:
+          - if:
+              condition:
+                switch.is_off: avoid
+              then:
+                - switch.turn_off: relay
+              else:
+                - delay: 15s
+                - switch.turn_off: avoid
+      - cron: '00 30 07 * * 2-6' # When to turn on the relay
+        then:
+          switch.turn_on: relay
