@@ -20,9 +20,9 @@ To quickly get the setup working, follow this steps:
 1. Add the cron to execute the poweroff script
 
 ## 3. Detailed instructions
-Detailed instructions can be found under the `docs/` directory, or by clicking [here](docs/) (which will 'teleport' you there).
+Detailed instructions can be found under the `docs/` directory, or by clicking [here](docs/install.md) (which will 'teleport' you there).
 
-🇪🇸 En el directorio `docs/` existe una versión en español de este documento y de toda la documentación.
+🇪🇸 En el directorio `docs/` existe una versión español de este documento y de toda la documentación. Haz clic [aquí](docs/README.es.md) para verla.
 
 
 This project aims to replace the default firmware of a sonoff basic relay to make it automatically turn ond and off my homeserver, a raspberry pi.
