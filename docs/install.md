@@ -28,20 +28,20 @@ The intervals on which the relay is turned on an off are defined in the script w
 
 What defines the time is the string after `cron`, which looks something like this: `30 30 23 * * 1-5`. This means, at half past eleven and 30 seconds from sunday to monday:
 
-	- The first number is the second
-	- The second number is the minute
-	- The third number is the hour
-	- The fourth number is the day of the month
-	- The fith number is the month number
-	- The sixth number is the day of the week
+- The first number is the second
+- The second number is the minute
+- The third number is the hour
+- The fourth number is the day of the month
+- The fith number is the month number
+- The sixth number is the day of the week
 
 _ℹ Sometimes, there is only five characters, when there isn't seconds and the first value is already the minutes_
 These values can be:
 
-	- A number. For the day of week, in this case 1 is sunday, while usually 0 is sunday, so keep this in mind
-	- An asterisk, meaning all values, for example, if the day of month is an asterisk, the action will be executed every day with the frecuency determined by the rest of parameters
-	- A fraction in the form `*/5`, which in this case, if put in hours, it would mean every five hours
-	- A range in the form `10-22`, which would mean, if put in hours, every hour from 10AM to 10PM
-	- A list. `1,3,5`, wich would mean at minutes 1, 3 and 5
+- A number. For the day of week, in this case 1 is sunday, while usually 0 is sunday, so keep this in mind
+- An asterisk, meaning all values, for example, if the day of month is an asterisk, the action will be executed every day with the frecuency determined by the rest of parameters
+- A fraction in the form `*/5`, which in this case, if put in hours, it would mean every five hours
+- A range in the form `10-22`, which would mean, if put in hours, every hour from 10AM to 10PM
+- A list. `1,3,5`, wich would mean at minutes 1, 3 and 5
 
 With that, you should be able to modify the hours at which automations happen, and even add more, just keep in mind that when adding the automations to your server, the days of week variable will be that of the esphome file +1, and that you don't need seconds there.

@@ -20,7 +20,7 @@ Para poner a funcionar el sistema rápidamente, sigue estos pasos:
 1. Añade el cron para ejecutar el script de apagado
 
 ## 3. Instrucciones detalladas
-Puedes encontrar instrucciones detalladas en el directorio `/docs', o haciendo clic [aquí](docs/) (que te 'teletransportará' allí).
+Puedes encontrar instrucciones detalladas en el directorio `/docs', o haciendo clic [aquí](install.es.md) (que te 'teletransportará' allí).
 
 🇬🇧There is an english version of this document and of all the documentation under de `docs/` directory.
 

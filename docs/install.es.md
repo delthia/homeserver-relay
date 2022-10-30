@@ -28,21 +28,21 @@ Los intervalos en los que se enciende y se apaga el relé se definen en el scrip
 
 Lo que define la hora es la cadena después de `cron`, que se parece a algo así: `30 30 23 * * 1-5`. Esto significa, a las once y media y treinta segundos de domingo a lunes:
 
-	- El primer número es el segundo
-	- El segundo número es el minuto
-	- El tercer número es la hora
-	- El cuarto número es el día del mes
-	- El quinto número es el número de mes
-	- El sexto número es el día de la semana
+- El primer número es el segundo
+- El segundo número es el minuto
+- El tercer número es la hora
+- El cuarto número es el día del mes
+- El quinto número es el número de mes
+- El sexto número es el día de la semana
 
 _ℹ Algunas veces, solo hay cinco caracteres, cuando no hay segundo y el primer valor son los minutos_
 
 Estos valores pueden ser:
 
-	- Un número. Para el día de la semana, en este caso 1 es domingo, mientras que 0 suele ser domingo, así que tenlo en cuenta
-	- Un asterísco, que significa todos los valores, por ejemplo, si el día del mes es un asterísco, la acción se ejecutará todos los días del mes con la frecuencia determinada por el resto de parámetros
-	- Una fracción en la forma  `*/5`, que en este caso, si se pone en las horas, sería cada cinco horas
-	- Un rango en la forma `10-22`, lo que significa, si se pone en las horas, de 10 a 22.
-	- Una lista. `1,3,5`, que sería en los minutos 1, 3 y 5
+- Un número. Para el día de la semana, en este caso 1 es domingo, mientras que 0 suele ser domingo, así que tenlo en cuenta
+- Un asterísco, que significa todos los valores, por ejemplo, si el día del mes es un asterísco, la acción se ejecutará todos los días del mes con la frecuencia determinada por el resto de parámetros
+- Una fracción en la forma  `*/5`, que en este caso, si se pone en las horas, sería cada cinco horas
+- Un rango en la forma `10-22`, lo que significa, si se pone en las horas, de 10 a 22.
+- Una lista. `1,3,5`, que sería en los minutos 1, 3 y 5
 
 Con eso, deberías de poder modificar las horas a las que se realizan las automatizaciones, e incluso añadir más, simplemente ten en cuenta que cuando añadas automatizacioines en tu servidor, la varíable de día de la semana sería la del archivo de esphome +1, y que ahí no necesitas los segundos.
