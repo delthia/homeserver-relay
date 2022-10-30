@@ -21,3 +21,9 @@ Para poner a funcionar el sistema rápidamente, sigue estos pasos:
 
 ## 3. Instrucciones detalladas
 Puedes encontrar instrucciones detalladas en el directorio `/docs', o haciendo clic [aquí](docs/) (que te 'teletransportará' allí).
+
+🇬🇧There is an english version of this document and of all the documentation under de `docs/` directory.
+
+Este proyecto busca reemplazar el firmware por defecto de un relé sonoff basic, para hacer que encienda y apague mi servidor, una raspberry pi.
+
+Actualmente, este repositorio alberga el script the esphome y el scrip the bash en los que estoy trabajando para hacer que esto sea completamente funcional, y que pueden no tener mucho sentido sin la documentación que los acompaña, que deberá de ser subida al repositorio en algún momento en un futuro cercano.
